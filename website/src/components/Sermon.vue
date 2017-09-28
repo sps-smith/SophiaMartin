@@ -1,12 +1,14 @@
+
 <template>
-  <div class="content">
-    <div class="container">  
+  <div id="vdContent" class="content" :class="{ showVideo: videoSelect}"  v-on:click="changeIndex()">
+    <div class="container ">  
           <h2>Sermons</h2>
       <div class="row">
         <div class="col-md-6">
           <div class="videoWrapper">
-              <iframe  height="315" src="https://www.youtube.com/embed/34BY2KjJxwo" frameborder="0" allowfullscreen></iframe>   
-              <p>Brampton Triumphant Church Of God - Revival Service - Saturday Night - Pastor Sophia Martin - May 2014</p>         
+              <!-- <youtube :video-id="getVideo('https://www.youtube.com/embed/34BY2KjJxwo')" player-width="550" player-height="315" @click="ready" ></youtube> -->
+              <iframe  height="315" src="https://www.youtube.com/embed/34BY2KjJxwo" frameborder="0" allowfullscreen></iframe>  
+              <p>Brampton Triumphant Church Of God - Revival Service - Saturday Night - Pastor Sophia Martin - May 2014</p>          
           </div>
         </div>
         <div class="col-md-6">
@@ -28,6 +30,7 @@
                 <iframe height="315" src="https://www.youtube.com/embed/AJrK50C5DOA" frameborder="0" allowfullscreen></iframe>
                 <p>Brampton Triumphant Church Of God - Revival Service - Sunday Night Service - Pastor Sophia Martin - June 2014</p>
           </div>
+         
         </div>
      </div>
     </div>
@@ -35,13 +38,28 @@
 </template>
 
 <script>
+
 export default {
-  name: 'Sermon'
+  name: 'Sermon',
+  data(){
+      return {
+          videoSelect: false
+      }
+  },
+  methods: {
+      changeIndex: function(){
+         this.videoSelect = true;
+      }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.showVideo
+{
+    z-index:auto;
+}
 iframe
 {
     width:550px;

@@ -3,7 +3,7 @@
     <div class="container">  
       <div class="row">
         <div class="col-md-12">
-            <img src="../images/img_1388.jpg" class="img-responsive" />
+            <img src="/static/images/img_1388.jpg" class="img-responsive" />
         </div>
       </div>
     </div>
@@ -18,6 +18,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+img
+{
+   max-width:1140px;
+   width: 100%;
+}
 h1, h2 {
   font-weight: normal;
 }

@@ -42,7 +42,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('images/[name].[hash:7].[ext]')
         }
       },
       {
@@ -53,13 +53,11 @@ module.exports = {
           name: utils.assetsPath('media/[name].[hash:7].[ext]')
         }
       },
-      {
-        test: /\.(png|jpg)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 8192
-        }
-      },
+      // {
+      //   test: /\.(png|jpg)$/,
+      //   loader: 'url-loader',
+      //   include: './static/images'
+      // },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',

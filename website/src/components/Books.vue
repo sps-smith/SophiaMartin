@@ -2,17 +2,17 @@
   <div class="content">
     <div class="container">  
       <div class="row">
-        <div class="col-md-4 visible-md visible-lg">
+        <div class="col-md-4 visible-md visible-lg"  v-if="!isSmall()">
           <div class="bookimg">
-                <img class="img-responsive" src="../images/book.jpg" />
+                <img class="img-responsive" src="static/images/book.jpg" />
             </div>
           <div class="amazonimage">
-                <a title="get this book at Amazon.ca" href="https://www.amazon.ca/If-You-Only-Knew-Story-ebook/dp/B017GRBII2" target="_blank"><img class="img-responsive" src="../images/amazon.jpg" width="306"/></a>
+                <a title="get this book at Amazon.ca" href="https://www.amazon.ca/If-You-Only-Knew-Story-ebook/dp/B017GRBII2" target="_blank"><img class="img-responsive" src="static/images/amazon.jpg" width="306"/></a>
             </div>
         </div>
         <div class="col-md-8">
             <h2 class="hidden-xs" style="text-align:center;font-family:Arial;color:#AC471B;text-transform:uppercase;margin-top:0">If you only knew my <span style="font-family:cursive;font-size:52px;font-style:italic;color:#78CDEA;text-transform:none">Story</span></h2>
-            <h3 class="visible-xs" style="text-align:center;font-family:Arial;color:#AC471B;text-transform:uppercase;margin-top:0">If you only knew my <span style="font-family:cursive;font-size:52px;font-style:italic;color:#78CDEA;text-transform:none">Story</span></h3>
+            <!-- <h3 class="visible-xs" style="text-align:center;font-family:Arial;color:#AC471B;text-transform:uppercase;margin-top:0">If you only knew my <span style="font-family:cursive;font-size:52px;font-style:italic;color:#78CDEA;text-transform:none">Story</span></h3> -->
             <h4 style="text-align:center">A preivew of what's inside</h4>
             <p>We all have a story to tell. It has been said that there are three sides to any story: your side, 
             my side and yes the right side. Whether it is fact or fiction, true or false, this is my side of the story.</p>
@@ -39,13 +39,13 @@
             she ensured I attended every church event regardless if I felt liked it or not.</p>
             <p><router-link to="/BookLaunch" class="bklaunch">Book launch pictures</router-link></p>
         </div>
-        <div class="col-md-4 smallscreen hidden-md hidden-lg" >
+        <div class="col-md-4 smallscreen hidden-md hidden-lg" v-if="isSmall()" >
             <hr />
             <div class="bookimg">
-                <img class="img-responsive" src="../images/book.jpg" />
+                <img class="img-responsive" src="static/images/book.jpg" />
             </div>
             <div class="amazonimage">
-                <a title="get this book at Amazon.ca" href="https://www.amazon.ca/If-You-Only-Knew-Story-ebook/dp/B017GRBII2" target="_blank"><img class="img-responsive" src="../images/amazon.jpg" /></a>
+                <a title="get this book at Amazon.ca" href="https://www.amazon.ca/If-You-Only-Knew-Story-ebook/dp/B017GRBII2" target="_blank"><img class="img-responsive" src="/static/images/amazon.jpg" /></a>
             </div>
         </div>
       </div>
@@ -55,12 +55,23 @@
 
 <script>
 export default {
-  name: 'Books'
+  name: 'Books',
+  methods:{
+      isSmall: function(){
+        if (window.screen.availWidth <= 763)
+            return true;
+        else
+            return false;
+      }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.content{
+  margin-bottom: 30px;
+}
 div.row > div
 {
   text-align: justify;;

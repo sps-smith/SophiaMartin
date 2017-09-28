@@ -5,17 +5,13 @@ import About from '@/components/About'
 import Contact from '@/components/Contact'
 import Books from '@/components/Books'
 import Sermons from '@/components/Sermon'
+import BookLaunch from '@/components/BookLaunch'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'Hello',
-    //   component: Hello
-    // },
     {
       path: '/',
       redirect: "Home"
@@ -40,7 +36,10 @@ export default new Router({
     {
       path: '/Sermons',
       component: Sermons
+    },
+    {
+      path: '/BookLaunch',
+      component: BookLaunch
     }
-
   ]
 })
