@@ -35,9 +35,4 @@ footer p{
     width: 100%;
     background:#fff;
 }
- @media (max-width:1024px){
-    .ftContent{
-        padding-bottom: 0;
-    }
- }
 </style> 

@@ -1,59 +1,49 @@
 <template>
     <div class="myNav">
-        <div class="headBanner">
-            <div class="container">
-                <b-navbar toggleable="md" type="dark" variant="" fixed="top">
-
-                    <b-nav-toggle target="nav_collapse" position="right" @click="navClick"></b-nav-toggle>
-
-                    <!-- <b-navbar-brand href="#">NavBar</b-navbar-brand> -->
-
-                    <b-collapse is-nav id="nav_collapse">
-
-                        <b-nav is-nav-bar>
-                            <b-nav-item> <router-link to="/Home" exact>Home</router-link></b-nav-item>
-                            <b-nav-item> <router-link :to="`/About`">About</router-link></b-nav-item>                        
-                            <b-nav-item> <router-link :to="`/Contact`" >Contact</router-link></b-nav-item>
-                            <b-nav-item> <router-link :to="`/Books`" >Books</router-link></b-nav-item>
-                            <b-nav-item> <router-link :to="`/Sermons`" >Sermons</router-link></b-nav-item>
-                        </b-nav>
-                    </b-collapse>
-                </b-navbar>
-            </div>
-        </div>
-        <!-- <div class="banner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="imgLogo">
-                            <img src="/static/images/img_1284.jpg" class="logo img-responsive img-thumbnail" />
-                        </div>
-                        <div class="namecss">
-                            <h1 class="stitle">Rev. Sophia Martin</h1>
-                        </div>
+            <div class="container">     
+                <div class="row">    
+                    <div class="col-md-12">   
+                        <nav class="navbar fixed-top navbar-toggleable navbar-light bg-faded">                
+                            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @click="navClick">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="nav navbar-nav">
+                                    <li v-if="items" @click="hideNav"> <router-link to="/Home" exact>Home</router-link></li>                             
+                                    <li v-if="items" @click="hideNav"> <router-link :to="`/About`">About</router-link></li> 
+                                    <li v-if="items" @click="hideNav"> <router-link :to="`/Contact`">Contact</router-link></li> 
+                                    <li v-if="items" @click="hideNav"> <router-link :to="`/Books`">Books</router-link></li> 
+                                    <li v-if="items" @click="hideNav"> <router-link :to="`/Sermons`">Sermons</router-link></li> 
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
-                    
                 </div>
-                 <hr>
-            </div>           
-        </div> -->
+        </div>
     </div>
 </template>
 
 <script>
-
+    
     export default{
         name: 'Navigation',
         data(){
             return {
-               State : false
+               State : false,
+               items: true
             }
         },
         methods:{
             navClick()
             {
                 this.State = !this.State;
-                this.$emit('change', this.State);
+                this.$emit('change',this.State);
+            },
+            hideNav()
+            {
+                this.State = false;
+                $(".navbar-collapse").collapse('hide');
+                this.$emit('change',this.State);
             }
         }
     }
@@ -63,6 +53,40 @@
 .myNav
 {
     max-width: 100%;
+    width: 100%;
+    background-color: #d48c06;
+    position: fixed;
+    z-index: 1;
+}
+.navbar
+{
+    padding:0;
+}
+.navbar-nav > li > a
+{
+    color:#000;
+}
+.navbar-nav > li > a:hover
+{
+    background:#fff;
+    color:#d48c06;
+}
+.navbar-nav > li > a.router-link-exact-active {
+    color:#d48c06;
+    background:#fff;
+}
+.navbar-light .navbar-toggler
+{
+    border-color: #000;
+    padding:8px;
+    border-radius: 5px;
+    margin-left:10px;
+}
+nav.navbar-toggleable
+{
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .headBanner
 {
@@ -75,7 +99,7 @@
 }
 .fixed-top
 {
-    background-color: #d48c06;
+    background-color: transparent;
     max-width: inherit;
     margin:auto;
     color: #000;
@@ -111,9 +135,7 @@ div.imgLogo
     float: left;
     margin-top:15px;
 }    
-li.nav-item a.nav-link a.router-link-exact-active {
-    color:#fff;
-}
+
 .banner
 {
     position:fixed;
@@ -128,7 +150,7 @@ li.nav-item a.nav-link a.router-link-exact-active {
         font-size:24pt;
     }
 }
-@media (max-width: 425px) {
+@media (max-width: 575px) {
     div.imgLogo
     {
         float: none;
@@ -137,6 +159,30 @@ li.nav-item a.nav-link a.router-link-exact-active {
     {
         max-width: 400px;
         padding-top: 0;
+    }
+    .navbar-collapse
+    {
+        width:100%;
+        margin-top:50px;
+    }
+    .navbar-light .navbar-toggler
+    {
+        margin-left:15px;
+    }
+    div.col-md-12
+    {
+        padding-left:0;
+        padding-right:0;
+    }
+}
+@media (min-width: 576px)
+{
+    .navbar-nav > li > a {
+        padding-top: 10px; 
+        padding-bottom: 10px;
+    }
+    .nav > li
+    {
     }
 }
 </style>

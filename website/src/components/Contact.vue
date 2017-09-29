@@ -36,7 +36,6 @@ div.imgfacebook
 }
 h4
 {
-  font-size: 1.3rem;
   white-space: pre;
 }
 </style>

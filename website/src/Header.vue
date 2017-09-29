@@ -1,30 +1,8 @@
 <template>
-    <!-- <div class="myNav">
-        <div class="headBanner">
-            <div class="container">
-                <b-navbar toggleable="md" type="dark" variant="" fixed="top">
+    <div>
+        <Navigation @change="hidediv(menu,$event)"></Navigation>
 
-                    <b-nav-toggle target="nav_collapse" position="right"></b-nav-toggle>
-
-                    <!-- <b-navbar-brand href="#">NavBar</b-navbar-brand> -->
-
-                    <!-- <b-collapse is-nav id="nav_collapse">
-
-                            <b-nav-item> <router-link :to="`/Contact`" >Contact</router-link></b-nav-item>
-                            <b-nav-item> <router-link :to="`/Books`" >Books</router-link></b-nav-item>
-                            <b-nav-item> <router-link :to="`/Sermons`" >Sermons</router-link></b-nav-item>
-                        </b-nav>
-                           <b-nav is-nav-bar>
-                            <b-nav-item> <router-link to="/Home" exact>Home</router-link></b-nav-item>
-                            <b-nav-item> <router-link :to="`/About`">About</router-link></b-nav-item>                        
-                 </b-collapse>
-                </b-navbar>
-            </div>
-        </div>--> 
-        <div>
-            <Navigation @change="hidediv"></Navigation>
-
-        <div class="banner" :class="{ hideview: menu, setview: !menu}" >
+        <div class="banner" :class="{ hideview: menu, setview: !menu }" >
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -49,15 +27,14 @@ import Navigation from './Navigation.vue';
         name: 'Header',
         data(){
             return {
-                menu: false
+                menu: Navigation.data().State
             }
         },
         methods:{
-            hidediv(st){
-                this.menu = st;
+            hidediv(menu,event){
+                this.menu = event;
             }
         },
-
         components:{
             'Navigation': Navigation
         }
@@ -67,11 +44,11 @@ import Navigation from './Navigation.vue';
 <style scoped>
 .setview
 {
-    display: block;
+    z-index:1;
 }
 .hideview
 {
-    display: none;
+    z-index:auto;
 }
 .logo {
     max-width: 180px;
@@ -95,7 +72,7 @@ li.nav-item a.nav-link a.router-link-exact-active {
     width:100%;
     background: #fff;
     margin-top:-10px;
-    z-index: 1;
+    margin-top: 50px;
 }
 @media (max-width: 320px) {
     .namecss h1
@@ -103,20 +80,17 @@ li.nav-item a.nav-link a.router-link-exact-active {
         font-size:24pt;
     }
 }
-@media (max-width: 425px) {
+@media (max-width: 575px) {
     div.imgLogo
     {
         float: none;
     }  
     .namecss
     {
-        max-width: 400px;
+        max-width: 100%;
         padding-top: 0;
-    }
-    .banner
-    {
-        position: relative;
-        z-index: auto;
-    }
+        text-align:center;
+    }    
 }
+
 </style>

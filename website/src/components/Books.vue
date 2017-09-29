@@ -2,7 +2,7 @@
   <div class="content">
     <div class="container">  
       <div class="row">
-        <div class="col-md-4 visible-md visible-lg"  v-if="!isSmall()">
+        <div class="col-md-4 mdpic">
           <div class="bookimg">
                 <img class="img-responsive" src="static/images/book.jpg" />
             </div>
@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="col-md-8">
-            <h2 class="hidden-xs" style="text-align:center;font-family:Arial;color:#AC471B;text-transform:uppercase;margin-top:0">If you only knew my <span style="font-family:cursive;font-size:52px;font-style:italic;color:#78CDEA;text-transform:none">Story</span></h2>
+            <h2 class="" style="text-align:center;font-family:Arial;color:#AC471B;text-transform:uppercase;margin-top:0">If you only knew my <span style="font-family:cursive;font-size:52px;font-style:italic;color:#78CDEA;text-transform:none">Story</span></h2>
             <!-- <h3 class="visible-xs" style="text-align:center;font-family:Arial;color:#AC471B;text-transform:uppercase;margin-top:0">If you only knew my <span style="font-family:cursive;font-size:52px;font-style:italic;color:#78CDEA;text-transform:none">Story</span></h3> -->
             <h4 style="text-align:center">A preivew of what's inside</h4>
             <p>We all have a story to tell. It has been said that there are three sides to any story: your side, 
@@ -39,7 +39,7 @@
             she ensured I attended every church event regardless if I felt liked it or not.</p>
             <p><router-link to="/BookLaunch" class="bklaunch">Book launch pictures</router-link></p>
         </div>
-        <div class="col-md-4 smallscreen hidden-md hidden-lg" v-if="isSmall()" >
+        <div class="col-md-4 smallscreen" >
             <hr />
             <div class="bookimg">
                 <img class="img-responsive" src="static/images/book.jpg" />
@@ -69,6 +69,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.smallscreen
+{
+  display: none;
+}
 .content{
   margin-bottom: 30px;
 }
@@ -93,11 +97,19 @@ a.bklaunch:hover
   text-decoration: none;
   border-bottom:1px dotted;
 }
-@media (max-width: 768px)
+@media (max-width: 755px)
 {
      div.bookimg img, div.amazonimage img
      {
          width:100%;
+     }
+     .mdpic
+     {
+       display: none;
+     }
+     .smallscreen
+     {
+       display: inline;
      }
 }
 </style>

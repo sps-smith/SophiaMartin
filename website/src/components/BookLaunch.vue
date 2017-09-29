@@ -1,32 +1,43 @@
 <template>
-  <div class="content">
-    <div class="container">  
-          <h2>Book Launch Pictures</h2>
-      <div class="row">
-        <div class="col-md-12">
+    <div class="content">
+        <div class="container">  
+            <h2>Book Launch Pictures</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            
+                        </ol>
 
-            <b-carousel id="carousel1"
-                style="text-shadow: 1px 1px 2px #333;"
-                controls
-                indicators
-                background="#ababab"
-                :interval="4000"
-                img-width="600"
-                img-height="600"
-                v-model="slide"
-                @sliding-start="onSlideStart"
-                @sliding-end="onSlideEnd"
-                >
-                    <b-carousel-slide img-src="/static/images/IMG_1356_new.jpg">
-                    </b-carousel-slide>
-                    <b-carousel-slide img-src="/static/images/IMG_1358.JPG">
-                    </b-carousel-slide>
-            </b-carousel>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="img-responsive" src="/static/images/IMG_1356_new.jpg" />
+                            </div>
+
+                            <div class="carousel-item">
+                                <img class="img-responsive" src="/static/images/IMG_1358.JPG" />
+                            </div>                    
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                </div>
             </div>
         </div>
-     </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -42,7 +53,6 @@ export default {
 }
 div#myCarousel img
 {
-    height: 600px;
     margin: auto;
 }
 h2
