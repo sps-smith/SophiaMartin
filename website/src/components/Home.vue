@@ -1,12 +1,6 @@
 <template>
 <div class="content">
-    <div class="container">  
-      <div class="row">
-        <div class="col-md-12">
-            <img src="/static/images/img_1388.jpg" class="img-responsive" />
-        </div>
-      </div>
-    </div>
+        <img src="/static/images/img_1388.jpg" class="img-responsive" />
   </div>
 </template>
 
@@ -20,7 +14,7 @@ export default {
 <style scoped>
 img
 {
-   max-width:1140px;
+   max-width:1000px;
    width: 100%;
 }
 h1, h2 {

@@ -1,9 +1,11 @@
 <template>
-    <div class="ftContent">
-        <div class="container">
-            <footer>
-                <p>&copy; {{currentDate}} - Sophia Martin</p>
-            </footer>
+    <div class="myFooter">
+        <div class="ftContent">
+            <div>
+                <footer>
+                    <p>&copy; {{currentDate}} - Sophia Martin</p>
+                </footer>
+            </div>
         </div>
     </div>
 </template>
@@ -26,13 +28,19 @@ footer p{
     text-align: justify;   
     font-weight: bold;
 }
-.ftContent
+.myFooter
 {
-    padding-top:10px;
-    padding-bottom: 10px;
     position: fixed;
     bottom:-15px;
     width: 100%;
     background:#fff;
+}
+.ftContent
+{
+    padding: 10px;
+    max-width: 1140px;
+    width: 100%;
+    background:#fff;
+    margin:auto;
 }
 </style> 

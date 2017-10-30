@@ -1,25 +1,19 @@
 <template>
     <div class="myNav">
-            <div class="container">     
-                <div class="row">    
-                    <div class="col-md-12">   
-                        <nav class="navbar fixed-top navbar-toggleable navbar-light bg-faded">                
-                            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @click="navClick">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="nav navbar-nav">
-                                    <li v-if="items" @click="hideNav"> <router-link to="/Home" exact>Home</router-link></li>                             
-                                    <li v-if="items" @click="hideNav"> <router-link :to="`/About`">About</router-link></li> 
-                                    <li v-if="items" @click="hideNav"> <router-link :to="`/Contact`">Contact</router-link></li> 
-                                    <li v-if="items" @click="hideNav"> <router-link :to="`/Books`">Books</router-link></li> 
-                                    <li v-if="items" @click="hideNav"> <router-link :to="`/Sermons`">Sermons</router-link></li> 
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-        </div>
+        <nav class="navbar fixed-top navbar-toggleable navbar-light bg-faded">                
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @click="navClick">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav">
+                    <li v-if="items" @click="hideNav"> <router-link to="/Home" exact>Home</router-link></li>                             
+                    <li v-if="items" @click="hideNav"> <router-link :to="`/About`">About</router-link></li> 
+                    <li v-if="items" @click="hideNav"> <router-link :to="`/Contact`">Contact</router-link></li> 
+                    <li v-if="items" @click="hideNav"> <router-link :to="`/Books`">Books</router-link></li> 
+                    <li v-if="items" @click="hideNav"> <router-link :to="`/Sermons`">Sermons</router-link></li> 
+                </ul>
+            </div>
+        </nav>
     </div>
 </template>
 
@@ -58,8 +52,16 @@
     position: fixed;
     z-index: 1;
 }
+.navbar-collapse
+{
+    padding-right: 15px;
+    padding-left:0;
+}
 .navbar
 {
+    
+    width: 100%;
+    margin:auto;
     padding:0;
 }
 .navbar-nav > li > a
@@ -85,8 +87,6 @@
 nav.navbar-toggleable
 {
     border: none;
-    padding-top: 5px;
-    padding-bottom: 5px;
 }
 .headBanner
 {
@@ -100,7 +100,7 @@ nav.navbar-toggleable
 .fixed-top
 {
     background-color: transparent;
-    max-width: inherit;
+    max-width: 1140px;
     margin:auto;
     color: #000;
 }
@@ -144,6 +144,17 @@ div.imgLogo
     margin-top:-10px;
     z-index: 1;
 }
+@media (max-width: 1140px) {
+    nav.navbar-toggleable
+    {
+        padding-left:10px;
+    }
+    .navbar-nav
+    {
+        margin-left: 0;
+        padding-right: 15px;
+    }
+}
 @media (max-width: 320px) {
     .namecss h1
     {
@@ -168,6 +179,7 @@ div.imgLogo
     .navbar-light .navbar-toggler
     {
         margin-left:15px;
+        margin-top: 7px;
     }
     div.col-md-12
     {
@@ -180,9 +192,6 @@ div.imgLogo
     .navbar-nav > li > a {
         padding-top: 10px; 
         padding-bottom: 10px;
-    }
-    .nav > li
-    {
     }
 }
 </style>

@@ -1,21 +1,16 @@
 <template>
     <div>
         <Navigation @change="hidediv(menu,$event)"></Navigation>
-
-        <div class="banner" :class="{ hideview: menu, setview: !menu }" >
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="imgLogo">
-                            <img src="/static/images/img_1284.jpg" class="logo img-responsive img-thumbnail" />
-                        </div>
-                        <div class="namecss">
-                            <h1 class="stitle">Rev. Sophia Martin</h1>
-                        </div>
-                    </div>                    
+        <div class="myHeader">
+            <div class="banner" :class="{ hideview: menu, setview: !menu }" >
+                <div class="imgLogo">
+                    <img src="/static/images/img_1284.jpg" class="logo img-responsive img-thumbnail" />
                 </div>
-                 <hr>
-            </div>           
+                <div class="namecss">
+                    <h1 class="stitle">Rev. Sophia Martin</h1>
+                </div>
+            </div>
+            <hr>
         </div>
     </div>
 </template>
@@ -56,22 +51,39 @@ import Navigation from './Navigation.vue';
 .namecss
 {
     max-width: 600px;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 div.imgLogo
 {
-    float: left;
-    margin-top:15px;
+    padding-right: 20px;
 }    
 li.nav-item a.nav-link a.router-link-exact-active {
     color:#fff;
 }
-.banner
+.myHeader
 {
     position:fixed;
     width:100%;
+    padding:10px;
     background: #fff;
-    margin-top:-10px;
+    margin-bottom: 20px;
+}
+hr{
+    max-width: 1140px;
+    width:100%;
+    margin: auto;   
+    margin-top:10px; 
+}
+.banner
+{
+    display: flex;
+    -ms-flex-flow:row wrap;
+    -webkit-flex-flow: row wrap;
+    flex-flow:row wrap;
+    max-width: 1140px;
+    width:100%;
+    margin:auto;
+    background: #fff;
     margin-top: 50px;
 }
 @media (max-width: 320px) {
@@ -92,5 +104,11 @@ li.nav-item a.nav-link a.router-link-exact-active {
         text-align:center;
     }    
 }
+@media (max-width:520px)
+{
+    .banner
+    {
 
+    }
+}
 </style>

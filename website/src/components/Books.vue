@@ -1,18 +1,16 @@
 <template>
   <div class="content">
-    <div class="container">  
-      <div class="row">
-        <div class="col-md-4 mdpic">
-          <div class="bookimg">
+      <div class="myBooks">
+        <div class="mybookImg">
+            <div class="bookimg">
                 <img class="img-responsive" src="static/images/book.jpg" />
             </div>
-          <div class="amazonimage">
+            <div class="amazonimage">
                 <a title="get this book at Amazon.ca" href="https://www.amazon.ca/If-You-Only-Knew-Story-ebook/dp/B017GRBII2" target="_blank"><img class="img-responsive" src="static/images/amazon.jpg" width="306"/></a>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="bookcontent">
             <h2 class="" style="text-align:center;font-family:Arial;color:#AC471B;text-transform:uppercase;margin-top:0">If you only knew my <span style="font-family:cursive;font-size:52px;font-style:italic;color:#78CDEA;text-transform:none">Story</span></h2>
-            <!-- <h3 class="visible-xs" style="text-align:center;font-family:Arial;color:#AC471B;text-transform:uppercase;margin-top:0">If you only knew my <span style="font-family:cursive;font-size:52px;font-style:italic;color:#78CDEA;text-transform:none">Story</span></h3> -->
             <h4 style="text-align:center">A preivew of what's inside</h4>
             <p>We all have a story to tell. It has been said that there are three sides to any story: your side, 
             my side and yes the right side. Whether it is fact or fiction, true or false, this is my side of the story.</p>
@@ -39,17 +37,7 @@
             she ensured I attended every church event regardless if I felt liked it or not.</p>
             <p><router-link to="/BookLaunch" class="bklaunch">Book launch pictures</router-link></p>
         </div>
-        <div class="col-md-4 smallscreen" >
-            <hr />
-            <div class="bookimg">
-                <img class="img-responsive" src="static/images/book.jpg" />
-            </div>
-            <div class="amazonimage">
-                <a title="get this book at Amazon.ca" href="https://www.amazon.ca/If-You-Only-Knew-Story-ebook/dp/B017GRBII2" target="_blank"><img class="img-responsive" src="/static/images/amazon.jpg" /></a>
-            </div>
-        </div>
       </div>
-    </div>
   </div>
 </template>
 
@@ -69,6 +57,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.myBooks
+{
+  display: flex;
+  justify-content:flex-start;
+  -ms-flex-flow:row ;
+  -webkit-flex-flow: row ;
+  flex-flow: row ;
+}
+.myBookImg
+{
+    order:1;
+}
+.bookcontent
+{
+  max-width: 760px;
+  width:100%;
+  padding-left:40px;
+  order: 2;
+}
 .smallscreen
 {
   display: none;
@@ -97,12 +104,26 @@ a.bklaunch:hover
   text-decoration: none;
   border-bottom:1px dotted;
 }
-@media (max-width: 755px)
+@media (max-width:575px)
 {
-     div.bookimg img, div.amazonimage img
-     {
-         width:100%;
-     }
+    .myBooks
+    {
+        -ms-flex-flow:column ;
+        -webkit-flex-flow: column ;
+        flex-flow: column ;
+    }
+    .mybookImg
+    {
+        order:2;
+    }
+    .bookcontent
+    {
+      order:1;
+      padding-left: 0;
+    }
+}
+@media (max-width: 755px)
+{     
      .mdpic
      {
        display: none;
